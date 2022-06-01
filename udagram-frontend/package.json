@@ -11,9 +11,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "s3:create": "cd scripts/ && chmod +x s3-create.sh && s3-create.sh && cd ../",
-    "s3:upload": "cd scripts/ && chmod +x s3-upload.sh && s3-upload.sh && cd ../",
-    "s3:delete": "cd scripts/ && chmod +x s3-delete.sh && s3-delete.sh && cd ../"
+    "s3:create": "chmod +x \"../scripts/s3-create.sh\" && \"../scripts/s3-create.sh\"",
+    "s3:upload": "chmod +x \"../scripts/s3-upload.sh\" && \"../scripts/s3-upload.sh\"",
+    "s3:delete": "chmod +x \"../scripts/s3-delete.sh\" && \"../scripts/s3-delete.sh\""
   },
   "private": true,
   "dependencies": {
@@ -44,7 +44,6 @@
     "@ionic/angular-toolkit": "~1.4.0",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "~10.12.0",
     "@typescript-eslint/eslint-plugin": "^2.20.0",
     "@typescript-eslint/parser": "^2.20.0",
     "codelyzer": "~4.5.0",

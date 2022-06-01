@@ -1,5 +1,7 @@
 # Ignored Directories:
 node_modules/
+**/www/
 
 # Ignored Files:
 package-lock.json
+.env

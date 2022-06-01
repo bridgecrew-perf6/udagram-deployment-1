@@ -7,7 +7,10 @@
         "lint": "eslint . --ext .ts",
         "build:api": "cd udagram-api/ && npm run build && cd ../",
         "build:frontend": "cd udagram-frontend/ && npm run build:prod && cd ../",
-        "build": "npm run build:api && npm run build:frontend"
+        "build": "npm run build:api && npm run build:frontend",
+        "deploy:api": "cd udagram-api/ && npm run eb:deploy && cd ../",
+        "deploy:frontend": "cd udagram-frontend/ && npm run s3:upload && cd ../",
+        "deploy": "npm run deploy:api && npm run deploy:frontend"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.26.0",

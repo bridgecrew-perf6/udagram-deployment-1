@@ -1,6 +1,7 @@
 import * as dotenv from 'dotenv';
+import path from 'path';
 
-dotenv.config();
+dotenv.config({ path: path.join(__dirname, '../../../.env') });
 
 // ENV variables
 // - AWS_ACCESS_KEY_ID

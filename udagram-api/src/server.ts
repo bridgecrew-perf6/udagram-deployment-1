@@ -7,10 +7,11 @@ import { IndexRouter } from './controllers/v0/index.router';
 
 import bodyParser from 'body-parser';
 import { V0_FEED_MODELS, V0_USER_MODELS } from './controllers/v0/model.index';
+import path from 'path';
 
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 (async () => {
-	dotenv.config();
+	dotenv.config({ path: path.join(__dirname, '../../../.env') });
 
 	await sequelize.addModels(V0_FEED_MODELS);
 	await sequelize.addModels(V0_USER_MODELS);
@@ -34,7 +35,13 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from './controllers/v0/model.index';
 
 	// Start the Server
 	app.listen(port, () => {
-		console.log(`server running ${process.env.URL}`);
+		// check current environment
+		let liveUrl = `${process.env.URL}`;
+		if (process.env.ENV === 'dev') {
+			liveUrl = `http://${process.env.SERVER_HOST}:${port}/`;
+		}
+
+		console.log(`server running ${liveUrl}`);
 		console.log('press CTRL+C to stop server');
 	});
 })();
