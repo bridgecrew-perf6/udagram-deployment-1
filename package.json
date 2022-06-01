@@ -6,7 +6,7 @@
         "prettier": "prettier --config .prettierrc **/src/**/*.ts **/src/**/*.js  --write",
         "lint": "eslint . --ext .ts",
         "build:api": "cd udagram-api/ && npm run build && cd ../",
-        "build:frontend": "cd udagram-frontend/ && npm run build && cd ../",
+        "build:frontend": "cd udagram-frontend/ && npm run build:prod && cd ../",
         "build": "npm run build:api && npm run build:frontend"
     },
     "devDependencies": {
