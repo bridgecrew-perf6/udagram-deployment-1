@@ -2,8 +2,15 @@
     "scripts": {
         "install:api": "cd udagram-api/ && npm install --force && cd ../",
         "install:frontend": "cd udagram-frontend/ && npm install --force && cd ../",
+        "install": "npm run install:api && npm run install:frontend",
+
+        "prettier": "prettier --config .prettierrc **/src/**/*.ts **/src/**/*.js  --write",
+
         "build:api": "cd udagram-api/ && npm run build && cd ../",
-        "build:frontend": "cd udagram-frontend/ && npm run build && cd ../"
+        "build:frontend": "cd udagram-frontend/ && npm run build && cd ../",
+        "build": "npm run build:api && npm run build:frontend"
     },
-    "devDependencies": {}
+    "devDependencies": {
+        "prettier": "^2.6.2"
+    }
 }
