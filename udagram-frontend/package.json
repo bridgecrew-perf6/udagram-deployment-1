@@ -9,7 +9,8 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "s3:create": "cd scripts/ && chmod +x s3-create.sh && s3-create.sh && cd ../"
   },
   "private": true,
   "dependencies": {
