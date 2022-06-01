@@ -17,7 +17,8 @@
     "rds:delete": "cd scripts/ && chmod +x rds-delete.sh && rds-delete.sh && cd ../",
     "eb:create": "cd scripts/ && chmod +x eb-create.sh && eb-create.sh && cd ../",
     "eb:deploy": "cd scripts/ && chmod +x eb-deploy.sh && eb-deploy.sh && cd ../",
-    "eb:health": "cd scripts/ && chmod +x eb-health.sh && eb-health.sh && cd ../"
+    "eb:health": "cd scripts/ && chmod +x eb-health.sh && eb-health.sh && cd ../",
+    "eb:terminate": "cd scripts/ && chmod +x eb-terminate.sh && eb-terminate.sh && cd ../"
   },
   "engines": {
     "node": "14.15.1",
