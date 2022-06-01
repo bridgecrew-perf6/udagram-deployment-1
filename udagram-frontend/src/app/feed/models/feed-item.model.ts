@@ -13,7 +13,7 @@ export const feedItemMocks: FeedItem[] = [
 	{
 		id: 0,
 		url: '/assets/mock/xander1.jpg',
-		caption: "Who's a good boy?",
+		caption: 'Who`s a good boy?',
 	},
 	{
 		id: 0,

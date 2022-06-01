@@ -25,6 +25,7 @@ export class AuthLoginComponent implements OnInit {
 		private modal: ModalController
 	) {}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	ngOnInit() {
 		this.loginForm = this.formBuilder.group({
 			password: new FormControl('', Validators.required),
@@ -40,6 +41,7 @@ export class AuthLoginComponent implements OnInit {
 		});
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	async onSubmit($event) {
 		$event.preventDefault();
 
@@ -52,7 +54,7 @@ export class AuthLoginComponent implements OnInit {
 				this.loginForm.controls.email.value,
 				this.loginForm.controls.password.value
 			)
-			.then((user) => {
+			.then(() => {
 				this.modal.dismiss();
 			})
 			.catch((e) => {

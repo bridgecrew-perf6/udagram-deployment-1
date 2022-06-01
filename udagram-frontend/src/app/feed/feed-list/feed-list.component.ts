@@ -13,6 +13,7 @@ export class FeedListComponent implements OnInit, OnDestroy {
 	subscriptions: Subscription[] = [];
 	constructor(private feed: FeedProviderService) {}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	async ngOnInit() {
 		this.subscriptions.push(
 			this.feed.currentFeed$.subscribe((items) => {

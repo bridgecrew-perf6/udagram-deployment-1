@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Injectable } from '@angular/core';
 import {
 	HttpClient,
@@ -22,6 +24,7 @@ export class ApiService {
 
 	constructor(private http: HttpClient) {}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	static handleError(error: Error) {
 		alert(error.message);
 	}
@@ -63,18 +66,19 @@ export class ApiService {
 	}
 
 	async upload(endpoint: string, file: File, payload: any): Promise<any> {
-		const signed_url = (
+		const signedUrl = (
 			await this.get(`${endpoint}/signed-url/${file.name}`)
 		).url;
 
 		const headers = new HttpHeaders({ 'Content-Type': file.type });
-		const req = new HttpRequest('PUT', signed_url, file, {
+		const req = new HttpRequest('PUT', signedUrl, file, {
 			headers: headers,
 			reportProgress: true, // track progress
 		});
 
 		return new Promise((resolve) => {
 			this.http.request(req).subscribe((resp) => {
+				// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 				if (resp && (<any>resp).status && (<any>resp).status === 200) {
 					resolve(this.post(endpoint, payload));
 				}

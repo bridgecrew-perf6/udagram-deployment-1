@@ -27,14 +27,17 @@ export class FeedUploadComponent implements OnInit {
 		private modalController: ModalController
 	) {}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	ngOnInit() {
 		this.uploadForm = this.formBuilder.group({
 			caption: new FormControl('', Validators.required),
 		});
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	setPreviewDataUrl(file: Blob) {
 		const reader = new FileReader();
+		// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 		reader.onloadend = () => {
 			this.previewDataUrl = reader.result;
 		};
@@ -42,6 +45,7 @@ export class FeedUploadComponent implements OnInit {
 		reader.readAsDataURL(file);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	selectImage(event) {
 		const file = event.srcElement.files;
 
@@ -52,6 +56,7 @@ export class FeedUploadComponent implements OnInit {
 		this.setPreviewDataUrl(this.file);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	onSubmit($event) {
 		$event.preventDefault();
 		this.loadingController.create();
@@ -61,12 +66,13 @@ export class FeedUploadComponent implements OnInit {
 		}
 		this.feed
 			.uploadFeedItem(this.uploadForm.controls.caption.value, this.file)
-			.then((result) => {
+			.then(() => {
 				this.modalController.dismiss();
 				this.loadingController.dismiss();
 			});
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	cancel() {
 		this.modalController.dismiss();
 	}

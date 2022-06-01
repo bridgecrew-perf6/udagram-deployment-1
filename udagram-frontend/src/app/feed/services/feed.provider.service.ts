@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FeedItem, feedItemMocks } from '../models/feed-item.model';
+import { FeedItem } from '../models/feed-item.model';
 import { BehaviorSubject } from 'rxjs';
 
 import { ApiService } from '../../api/api.service';
@@ -16,11 +16,13 @@ export class FeedProviderService {
 
 	async getFeed(): Promise<BehaviorSubject<FeedItem[]>> {
 		const req = await this.api.get('/feed');
+		// eslint-disable-next-line @typescript-eslint/consistent-type-assertions
 		const items = <FeedItem[]>req.rows;
 		this.currentFeed$.next(items);
 		return Promise.resolve(this.currentFeed$);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	async uploadFeedItem(caption: string, file: File): Promise<any> {
 		const res = await this.api.upload('/feed', file, {
 			caption: caption,

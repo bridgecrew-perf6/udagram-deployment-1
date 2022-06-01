@@ -9,7 +9,9 @@ import { environment } from '../../environments/environment';
 export class MenubarComponent implements OnInit {
 	public appName = environment.appName;
 
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	constructor() {}
 
-	ngOnInit() {}
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	ngOnInit() {} // eslint-disable-line @typescript-eslint/explicit-function-return-type
 }

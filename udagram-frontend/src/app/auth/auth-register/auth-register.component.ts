@@ -24,10 +24,11 @@ export class AuthRegisterComponent implements OnInit {
 		private modal: ModalController
 	) {}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	ngOnInit() {
 		this.registerForm = this.formBuilder.group(
 			{
-				password_confirm: new FormControl('', Validators.required),
+				passwordConfirm: new FormControl('', Validators.required),
 				password: new FormControl('', Validators.required),
 				email: new FormControl(
 					'',
@@ -50,6 +51,7 @@ export class AuthRegisterComponent implements OnInit {
 		);
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	onSubmit($event) {
 		$event.preventDefault();
 
@@ -64,7 +66,7 @@ export class AuthRegisterComponent implements OnInit {
 
 		this.auth
 			.register(newuser, this.registerForm.controls.password.value)
-			.then((user) => {
+			.then(() => {
 				this.modal.dismiss();
 			})
 			.catch((e) => {
@@ -73,9 +75,10 @@ export class AuthRegisterComponent implements OnInit {
 			});
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	passwordsMatch(group: FormGroup) {
 		return group.controls.password.value ===
-			group.controls.password_confirm.value
+			group.controls.passwordConfirm.value
 			? null
 			: { passwordsMisMatch: true };
 	}

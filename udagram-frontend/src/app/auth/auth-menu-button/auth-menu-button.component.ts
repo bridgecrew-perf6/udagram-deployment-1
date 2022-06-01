@@ -17,30 +17,35 @@ export class AuthMenuButtonComponent implements OnInit {
 		public modalController: ModalController
 	) {}
 
-	async presentmodal(ev: any) {
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+	async presentmodal() {
 		const modal = await this.modalController.create({
 			component: AuthMenuUserComponent,
 		});
 		return await modal.present();
 	}
 
-	async presentLogin(ev: any) {
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+	async presentLogin() {
 		const modal = await this.modalController.create({
 			component: AuthLoginComponent,
 		});
 		return await modal.present();
 	}
 
-	async presentRegister(ev: any) {
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+	async presentRegister() {
 		const modal = await this.modalController.create({
 			component: AuthRegisterComponent,
 		});
 		return await modal.present();
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	logout() {
 		this.auth.logout();
 	}
 
-	ngOnInit() {}
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	ngOnInit() {} // eslint-disable-line @typescript-eslint/explicit-function-return-type
 }

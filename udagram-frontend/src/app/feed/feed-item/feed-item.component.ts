@@ -15,7 +15,9 @@ import { FeedItem } from '../models/feed-item.model';
 export class FeedItemComponent implements OnInit {
 	@Input() feedItem: FeedItem;
 
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
 	constructor() {}
 
-	ngOnInit() {}
+	// eslint-disable-next-line @typescript-eslint/no-empty-function
+	ngOnInit() {} // eslint-disable-line @typescript-eslint/explicit-function-return-type
 }

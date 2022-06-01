@@ -8,6 +8,7 @@ import { IndexRouter } from './controllers/v0/index.router';
 import bodyParser from 'body-parser';
 import { V0_FEED_MODELS, V0_USER_MODELS } from './controllers/v0/model.index';
 
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 (async () => {
 	dotenv.config();
 
@@ -34,6 +35,6 @@ import { V0_FEED_MODELS, V0_USER_MODELS } from './controllers/v0/model.index';
 	// Start the Server
 	app.listen(port, () => {
 		console.log(`server running ${process.env.URL}`);
-		console.log(`press CTRL+C to stop server`);
+		console.log('press CTRL+C to stop server');
 	});
 })();

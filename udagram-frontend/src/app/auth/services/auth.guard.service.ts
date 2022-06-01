@@ -16,8 +16,10 @@ export class AuthGuardService implements CanActivate {
 	constructor(private auth: AuthService, private router: Router) {}
 
 	canActivate(
-		route: ActivatedRouteSnapshot,
-		state: RouterStateSnapshot
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		_route: ActivatedRouteSnapshot,
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
+		_state: RouterStateSnapshot
 	):
 		| boolean
 		| UrlTree

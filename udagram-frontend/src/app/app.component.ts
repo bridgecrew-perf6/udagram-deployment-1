@@ -28,6 +28,7 @@ export class AppComponent {
 		this.initializeApp();
 	}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	initializeApp() {
 		this.platform.ready().then(() => {
 			this.statusBar.styleDefault();

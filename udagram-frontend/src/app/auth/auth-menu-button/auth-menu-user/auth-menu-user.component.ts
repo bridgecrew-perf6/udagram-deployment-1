@@ -9,8 +9,10 @@ import { ModalController } from '@ionic/angular';
 export class AuthMenuUserComponent implements OnInit {
 	constructor(private modalCtrl: ModalController) {}
 
-	ngOnInit() {}
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+	ngOnInit() {} // eslint-disable-line @typescript-eslint/no-empty-function
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	dismissModal() {
 		this.modalCtrl.dismiss();
 	}

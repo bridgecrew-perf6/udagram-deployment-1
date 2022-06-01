@@ -18,6 +18,7 @@ export class FeedUploadButtonComponent implements OnInit, OnDestroy {
 		private auth: AuthService
 	) {}
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	ngOnInit() {
 		this.auth.currentUser$.subscribe((user) => {
 			this.isLoggedIn = user !== null;
@@ -30,7 +31,8 @@ export class FeedUploadButtonComponent implements OnInit, OnDestroy {
 		}
 	}
 
-	async presentUploadForm(ev: any) {
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+	async presentUploadForm() {
 		const modal = await this.modalController.create({
 			component: FeedUploadComponent,
 		});

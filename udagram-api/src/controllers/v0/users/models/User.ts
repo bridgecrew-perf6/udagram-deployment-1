@@ -24,6 +24,7 @@ export class User extends Model<User> {
 	@UpdatedAt
 	public updatedAt: Date = new Date();
 
+	// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 	short() {
 		return {
 			email: this.email,
