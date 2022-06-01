@@ -11,7 +11,9 @@
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "rds:create": "cd scripts/ && chmod +x rds-create.sh && rds-create.sh && cd ../"
+    "rds:create": "cd scripts/ && chmod +x rds-create.sh && rds-create.sh && cd ../",
+    "rds:start": "cd scripts/ && chmod +x rds-start.sh && rds-start.sh && cd ../",
+    "rds:stop": "cd scripts/ && chmod +x rds-stop.sh && rds-stop.sh && cd ../"
   },
   "engines": {
     "node": "14.15.1",
