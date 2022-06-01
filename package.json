@@ -1,10 +1,9 @@
 {
     "scripts": {
         "install:api": "cd udagram-api/ && npm install --force && cd ../",
-        "build:api": "cd udagram-api/ && npm run build && cd ../"
+        "install:frontend": "cd udagram-frontend/ && npm install --force && cd ../",
+        "build:api": "cd udagram-api/ && npm run build && cd ../",
+        "build:frontend": "cd udagram-frontend/ && npm run build && cd ../"
     },
-    "devDependencies": {
-        "@types/bcrypt": "^3.0.0",
-        "@types/jsonwebtoken": "^8.3.2"
-    }
+    "devDependencies": {}
 }
