@@ -9,19 +9,47 @@ orbs:
 
 # Repetitive commands through jobs.
 commands:
+  # udagram-api/ installation.
   install_api:
-    description: Install server-side dependencies
+    description: Install server-side dependencies and save into cache
     steps:
+      # restore previous cache.
+      - restore_cache:
+          keys:
+            - api-dependencies-{{ checksum "package.json" }}
+            - api-dependencies-
+
+      # perform installation.
       - run:
           name: Install udagram-api/
           command: npm run install:api
 
+      # save cache for later installations.
+      - save_cache:
+          key: api-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
+
+  # udagram-frontend/ installation.
   install_frontend:
-    description: Install client-side dependencies
+    description: Install client-side dependencies and save into cache
     steps:
+      # restore previous cache.
+      - restore_cache:
+          keys:
+            - front-dependencies-{{ checksum "package.json" }}
+            - front-dependencies-
+
+      # perform installation.
       - run:
           name: Install udagram-frontend/
           command: npm run install:frontend
+
+      # save cache for later installations.
+      - save_cache:
+          key: front-dependencies-{{ checksum "package.json" }}
+          paths:
+            - node_modules
 
 # Define a job to be invoked later in a workflow.
 jobs:
@@ -58,6 +86,7 @@ jobs:
       - aws-cli/setup
       - eb/setup
       - checkout
+
       # install sub-jobs:
       - install_api
       - install_frontend
