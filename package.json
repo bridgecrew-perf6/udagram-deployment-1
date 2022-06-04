@@ -10,7 +10,10 @@
         "build": "npm run build:api && npm run build:frontend",
         "deploy:api": "cd udagram-api/ && npm run eb:deploy && cd ../",
         "deploy:frontend": "cd udagram-frontend/ && npm run s3:upload && cd ../",
-        "deploy": "npm run deploy:api && npm run deploy:frontend"
+        "deploy": "npm run deploy:api && npm run deploy:frontend",
+        "test:api": "cd udagram-api/ && npm run test && cd ../",
+        "test:frontend": "cd udagram-frontend/ && npm run test && cd ../",
+        "test": "npm run test:api && npm run test:frontend"
     },
     "devDependencies": {
         "@typescript-eslint/eslint-plugin": "^5.26.0",
