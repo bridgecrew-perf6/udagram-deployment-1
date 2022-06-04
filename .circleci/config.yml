@@ -131,7 +131,7 @@ jobs:
       - build_frontend
 
   # Deploy job
-  deploy:
+  deploy-api:
     # Specify the execution environment
     docker:
       - image: cimg/base:stable
@@ -142,18 +142,36 @@ jobs:
       - eb/setup
       - checkout
 
-      # install sub-jobs
+      # install udagram-api/
       - install_api
-      - install_frontend
 
-      # build sub-jobs
+      # build udagram-api/
       - build_api
-      - build_frontend
 
-      # Deploy sub-jobs
+      # Deploy udagram-api/
       - run:
           name: Deploy udagram-api/
           command: npm run deploy:api
+
+    # Deploy job
+  deploy-frontend:
+    # Specify the execution environment
+    docker:
+      - image: cimg/base:stable
+    # Add steps to the job
+    steps:
+      - node/install
+      - aws-cli/setup
+      - eb/setup
+      - checkout
+
+      # install udagram-frontend/
+      - install_frontend
+
+      # build udagram-frontend/
+      - build_frontend
+
+      # Deploy udagram-frontend/
       - run:
           name: Deploy udagram-frontend/
           command: npm run deploy:frontend
@@ -173,7 +191,10 @@ workflows:
           requires:
             - install-frontend
 
-      - deploy:
+      - deploy-api:
           requires:
             - build-api
+
+      - deploy-frontend:
+          requires:
             - build-frontend
