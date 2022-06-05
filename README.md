@@ -1,65 +1,199 @@
-# Udagram
+<!-- Project title -->
+# Udagram AWS Deployment
 
-This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+<!-- Describe your project in brief -->
+Build a Storefront Backend - Advanced Web Development egFWD - Second Project
 
-## Getting Started
+This project was implemented upon a starter project provided by Udacity. Here is the [starter project](https://github.com/udacity/nd0067-c4-deployment-process-project-starter) repository.
 
-1. Clone this repo locally into the location of your choice.
-1. Move the content of the udagram folder at the root of the repository as this will become the main content of the project.
-1. Open a terminal and navigate to the root of the repo
-1. follow the instructions in the installation step
+You can find the website deployed on AWS S3 via [live website link](http://mokhtar-udagram-bucket.s3-website-us-east-1.amazonaws.com).
 
-The project can run but is missing some information to connect to the database and storage service. These will be setup during the course of the project
+# Table of Contents
 
-### Dependencies
+- [Udagram AWS Deployment](#udagram-aws-deployment)
+- [Table of Contents](#table-of-contents)
+- [Installation](#installation)
+- [Development](#development)
+  - [Architecture](#architecture)
+- [Installed NPM Packages](#installed-npm-packages)
+  - [Development Packages](#development-packages)
+- [Useful Resources](#useful-resources)
 
+# Installation
+
+[(Back to top)](#table-of-contents)
+
+To use this project, you need to follow the commands below:
+
+1. Clone the repository into your local machine:
+
+   ```bash
+   git clone https://github.com/ibrahimelmokhtar/udagram-deployment.git
+   ```
+
+2. Redirect inside the cloned repository:
+
+    ```bash
+    cd udagram-deployment/
+    ```
+
+3. Install the required packages:
+
+   ```bash
+   npm install
+   ```
+
+   NOTE: *this command will install ALL the required dependencies: server-side and client-side.*
+
+4. Copy `example.env` file into `.env` file.
+
+5. Fill the created `.env` file with corresponding/appropriate information.
+
+6. *For applying configured styling*, run the following commands:
+   - ***Prettier** styling*:
+
+        ```bash
+        npm run prettier
+        ```
+
+   - ***ESLint** styling*:
+
+        ```bash
+        npm run lint
+        ```
+
+7. *For running test scripts*, run the following command:
+
+   ```bash
+   npm run test
+   ```
+
+   NOTE: *this command will test both server and client sides.*
+
+8. *For working with the **production** phase*, run the following commands:
+
+   ```bash
+   npm run build
+   ```
+
+    Then, *Deploy the built versions of both server and client sides*:
+
+    ```bash
+    npm run deploy
+    ```
+
+    Then, Open the website deployed on AWS S3 via the following link:
+
+    ```http
+    http://mokhtar-udagram-bucket.s3-website-us-east-1.amazonaws.com
+    ```
+
+# Development
+
+[(Back to top)](#table-of-contents)
+This section will explain **how the code works** and **how everything is put together.**
+
+## Architecture
+
+[(Back to top)](#table-of-contents)
+
+This project has the structure shown below:
+
+<details>
+    <summary>Project Structure</summary>
+
+```markdown
+├─── circleci/
+    └─── config.yml
+├─── .runbooks/
+   ├─── eb-check-health.md
+   ├─── eb-create-application.md
+   ├─── eb-deploy-environment.md
+   ├─── eb-terminate-environment.md
+   ├─── rds-create-instance.md
+   ├─── rds-delete-instance.md
+   ├─── rds-start-instance.md
+   ├─── rds-stop-instance.md
+   ├─── README.md
+   ├─── s3-create-bucket.md
+   ├─── s3-delete-bucket.md
+   └─── s3-upload-bucket.md
+├─── reviews/
+   ├─── AWS EB/
+      ├─── aws-eb-1.PNG
+      └─── aws-eb-2.PNG
+   ├─── AWS RDS/
+      ├─── aws-rds-1.PNG
+      └─── aws-rds-2.PNG
+   ├─── AWS S3/
+      ├─── aws-s3-1.PNG
+      └─── aws-s3-2.PNG
+   ├─── CircleCI Build/
+      ├─── circleci-00-workflow.PNG
+      ├─── circleci-10-install-client.PNG
+      ├─── circleci-11-build-client.PNG
+      ├─── circleci-12-deploy-client.PNG
+      ├─── circleci-20-install-server.PNG
+      ├─── circleci-21-build-server.PNG
+      └─── circleci-22-deploy-server.PNG
+   └─── CircleCI Environment/
+      ├─── circleci-env-1.PNG
+      └─── circleci-env-2.PNG
+├─── scripts/
+   ├─── eb-create.sh
+   ├─── eb-deploy.sh
+   ├─── eb-health.sh
+   ├─── eb-terminate.sh
+   ├─── rds-create.sh
+   ├─── rds-delete.sh
+   ├─── rds-start.sh
+   ├─── rds-stop.sh
+   ├─── s3-create.sh
+   ├─── s3-delete.sh
+   └─── s3-upload.sh
+├─── udagram-api/
+├─── udagram-frontend/
+├─── .env
+├─── .eslintignore
+├─── .eslintrc
+├─── .gitignore
+├─── .prettierrc
+├─── example.env
+├─── package.json
+└─── README.md
 ```
-- Node v14.15.1 (LTS) or more recent. While older versions can work it is advisable to keep node to latest LTS version
 
-- npm 6.14.8 (LTS) or more recent, Yarn can work but was not tested for this project
+</details>
 
-- AWS CLI v2, v1 can work but was not tested for this project
+# Installed NPM Packages
 
-- A RDS database running Postgres.
+[(Back to top)](#table-of-contents)
 
-- A S3 bucket for hosting uploaded pictures.
+These packages are required to run this project smoothly without any errors.
 
-```
+## Development Packages
 
-### Installation
+These packages can be found in the `"devDependencies"` object inside the `package.json` file.
 
-Provision the necessary AWS services needed for running the application:
+- [@typescript-eslint/eslint-plugin](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) - TypeScript plugin for ESLint.
+- [@typescript-eslint/parser](https://www.npmjs.com/package/@typescript-eslint/parser) - An ESLint custom parser which leverages TypeScript ESTree.
+- [eslint](https://www.npmjs.com/package/eslint) - An AST-based pattern checker for JavaScript.
+- [eslint-config-prettier](https://www.npmjs.com/package/eslint-config-prettier) - Turns off all rules that are unnecessary or might conflict with Prettier.
+- [eslint-plugin-prettier](https://www.npmjs.com/package/eslint-plugin-prettier) - Runs prettier as an eslint rule.
+- [prettier](https://www.npmjs.com/package/prettier) - Prettier is an opinionated code formatter.
+- [typescript](https://www.npmjs.com/package/typescript) - TypeScript is a language for application scale JavaScript development.
 
-1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
-1. In AWS, provision a s3 bucket for hosting the uploaded files. <Place holder for tlink to classroom article>
-1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
-1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
-1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
+# Useful Resources
 
-## Testing
+[(Back to top)](#table-of-contents)
 
-This project contains two different test suite: unit tests and End-To-End tests(e2e). Follow these steps to run the tests.
-
-1. `cd starter/udagram-frontend`
-1. `npm run test`
-1. `npm run e2e`
-
-There are no Unit test on the back-end
-
-### Unit Tests:
-
-Unit tests are using the Jasmine Framework.
-
-### End to End Tests:
-
-The e2e tests are using Protractor and Jasmine.
-
-## Built With
-
-- [Angular](https://angular.io/) - Single Page Application Framework
-- [Node](https://nodejs.org) - Javascript Runtime
-- [Express](https://expressjs.com/) - Javascript API Framework
-
-## License
-
-[License](LICENSE.txt)
+- [Documentation: Install AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
+- [Documentation: Install AWS EB CLI](https://github.com/aws/aws-elastic-beanstalk-cli-setup#eb-cli-installer)
+- [Youtube Video: Install AWS EB CLI](https://www.youtube.com/watch?v=J9na_nTJYM8)
+- [Documentation: Configure AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
+- [Documentation: Manipulate AWS RDS via CLI](https://docs.aws.amazon.com/cli/latest/reference/rds/)
+- [Documentation: Create a DB Instance](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_CreateDBInstance.html)
+- [Documentation: Manipulate AWS EB via CLI](https://docs.aws.amazon.com/cli/latest/reference/elasticbeanstalk/index.html)
+- [Documentation: AWS EB CLI Commands](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb3-cmd-commands.html)
+- [Documentation: Manipulate AWS S3 via CLI](https://docs.aws.amazon.com/cli/latest/reference/s3api/index.html)
+- [Documentation: Configuring CircleCI](https://circleci.com/docs/2.0/configuration-reference/)

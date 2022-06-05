@@ -1,6 +1,7 @@
 # Ignored Directories:
 node_modules/
 **/www/
+.vscode/
 
 # Ignored Files:
 package-lock.json
