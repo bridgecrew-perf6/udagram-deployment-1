@@ -1,5 +1,5 @@
 
-# Environment Variables Explaination
+# Environment Variables Explanation
 
 You need a separate S3 Media bucket !
 

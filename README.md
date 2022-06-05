@@ -2,7 +2,7 @@
 # Udagram AWS Deployment
 
 <!-- Describe your project in brief -->
-Build a Storefront Backend - Advanced Web Development egFWD - Second Project
+Deploy a full-stack website onto AWS - Advanced Web Development egFWD - Third Project
 
 This project was implemented upon a starter project provided by Udacity. Here is the [starter project](https://github.com/udacity/nd0067-c4-deployment-process-project-starter) repository.
 
