@@ -2,7 +2,7 @@
 # Udagram Server Side
 
 <!-- Describe your project in brief -->
-Deploy a full-stack website onto AWS - Advanced Web Development egFWD - Third Project
+Deploy a full-stack website onto AWS using CircleCI - Advanced Web Development egFWD - Third Project
 
 # Table of Contents
 
