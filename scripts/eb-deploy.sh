@@ -34,7 +34,25 @@ eb deploy $EB_ENVIRONMENT
 
 # Set environment variables:
 echo $'\n==> Setting environment variables ... This may take a while.\n'
-eb setenv PORT=$PORT POSTGRES_HOST=$POSTGRES_HOST POSTGRES_PORT=$POSTGRES_PORT POSTGRES_DB=$POSTGRES_DB POSTGRES_USERNAME=$POSTGRES_USERNAME POSTGRES_PASSWORD=$POSTGRES_PASSWORD
+eb setenv \
+        ENV=$ENV \
+        PORT=$PORT \
+        POSTGRES_HOST=$POSTGRES_HOST \
+        POSTGRES_PORT=$POSTGRES_PORT \
+        POSTGRES_DB=$POSTGRES_DB \
+        POSTGRES_USERNAME=$POSTGRES_USERNAME \
+        POSTGRES_PASSWORD=$POSTGRES_PASSWORD \
+        AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID \
+        AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY \
+        AWS_REGION=$AWS_REGION \
+        AWS_PROFILE=$AWS_PROFILE \
+        AWS_BUCKET=$AWS_BUCKET \
+        RDS_DIALECT=$RDS_DIALECT \
+        RDS_INSTANCE=$RDS_INSTANCE \
+        EB_APP_NAME=$EB_APP_NAME \
+        EB_ENVIRONMENT=$EB_ENVIRONMENT \
+        URL=$URL \
+        JWT_SECRET=$JWT_SECRET
 
 # Display message after deploying:
 echo $'\n==> Finished deploying script ...'
